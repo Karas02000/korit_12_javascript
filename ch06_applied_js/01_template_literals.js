@@ -1,0 +1,3 @@
+let name = "김일";
+
+console.log(`안녕하세요. 제 이름은 ${name}입니다.`);
