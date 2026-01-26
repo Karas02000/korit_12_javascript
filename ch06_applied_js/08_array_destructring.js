@@ -8,8 +8,6 @@ let z = score[2];
 
 let [a,b,c] = getScore();
 
-
-
 console.log(a);
 console.log(b);
 console.log(c);

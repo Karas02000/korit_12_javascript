@@ -1,0 +1,179 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+/* === 배경: 어두운 나무 책상 === */
+body {
+  background-color: #3E2723;
+  background-image: 
+    linear-gradient(rgba(0,0,0,0.2) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.2) 1px, transparent 1px);
+  background-size: 50px 50px; /* 나무판자 무늬 느낌 */
+  font-family: 'Pretendard', sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+  margin: 0;
+}
+
+/* === h1 제목: 서랍장 명찰 디자인 === */
+h1 {
+  background-color: #3E2723; /* 아주 깊은 고동색 */
+  color: #D7CCC8; /* 밝은 베이지색 텍스트 */
+  
+  /* 박스 모델 설정 */
+  margin: 0 0 30px 0;      /* 아래쪽 요소(입력창)와 확실한 간격 */
+  padding: 25px 10px;      /* 위아래로 넉넉한 공간 */
+  width: 100%;             /* 가로를 꽉 채움 */
+  
+  /* 시각적 분리 및 입체감 */
+  text-align: center;
+  border-radius: 8px 8px 0 0; /* 상단만 둥글게 해서 서랍 뚜껑 느낌 */
+  border-bottom: 4px solid #2D1B18; /* 하단에 진한 그림자선 */
+  
+  /* 텍스트 디테일 */
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 4px;     /* 글자 사이 간격을 벌려 고급스럽게 */
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* 글자에도 그림자 추가 */
+  
+  /* 장식: 양옆에 작은 못(dot) 효과 추가 */
+  position: relative;
+}
+
+/* h1 좌우에 금속 못 머리 같은 장식 추가 */
+h1::before, h1::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: #A1887F; /* 못(금속) 색상 */
+  border-radius: 50%;
+  transform: translateY(-50%);
+  box-shadow: inset 1px 1px 2px rgba(0,0,0,0.8);
+}
+
+h1::before { left: 20px; }
+h1::after { right: 20px; }
+
+/* 메인 컨테이너 수정 */
+.container {
+  background-color: #D7CCC8;
+  width: 90%;
+  max-width: 800px;
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+  border: 4px solid #5D4037;
+  overflow: hidden; /* h1의 배경색이 튀어나가지 않게 처리 */
+  display: flex;
+  flex-direction: column;
+}
+
+/* === 1. 상단 섹션: 고정된 도구함 (입력창) === */
+.input-section {
+  background: #8D6E63;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  border-bottom: 5px solid #5D4037;
+  display: flex;
+  gap: 15px;
+  z-index: 10; /* 리스트보다 위에 위치 */
+}
+
+#todo-input {
+  flex: 1;
+  padding: 15px;
+  border: none;
+  border-radius: 6px;
+  background: #FFF9C4; /* 메모지 색상 */
+  box-shadow: inset 2px 2px 5px rgba(0,0,0,0.1);
+  font-size: 1.1rem;
+  color: #3E2723;
+  outline: none;
+}
+
+#add-btn {
+  padding: 0 30px;
+  background: #3E2723;
+  color: #D7CCC8;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+#add-btn:hover { background: #1B110F; }
+
+/* === 2. 하단 섹션: 서랍 내부 (리스트) === */
+#todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* 파일들 사이의 간격 */
+}
+
+/* 가로로 길게 배치된 파일철 항목 */
+.todo-item {
+  background: #F5F5F5;
+  border-radius: 4px 20px 4px 4px; /* 오른쪽 상단을 둥글게 하여 인덱스 탭 느낌 */
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
+  border-left: 12px solid #A1887F; /* 파일 구분 탭 */
+  box-shadow: 2px 5px 15px rgba(0,0,0,0.2);
+  
+  /* ✨ 레이아웃에 영향을 주지 않는 변형 효과 */
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+/* 호버 시: 파일이 서랍에서 슬며시 앞으로 나오는 효과 */
+.todo-item:hover {
+  transform: translateX(10px); /* 오른쪽으로 살짝 밀려나옴 */
+  background: #FFFFFF;
+}
+
+.todo-text {
+  flex: 1;
+  font-size: 1.1rem;
+  color: #4E342E;
+  margin: 0 20px;
+}
+
+/* 체크박스 커스텀 */
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #5D4037;
+  cursor: pointer;
+}
+
+/* 완료된 파일: 서랍 깊숙이 밀어넣은 느낌 */
+.completed {
+  background: #D7CCC8;
+  border-left-color: #BCAAA4;
+  opacity: 0.6;
+  transform: scale(0.97);
+}
+
+.completed .todo-text {
+  text-decoration: line-through;
+}
+
+/* 삭제 버튼: 인덱스 라벨 느낌 */
+.delete-btn {
+  background: #E57373;
+  color: white;
+  border: none;
+  padding: 5px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.delete-btn:hover { background: #D32F2F; }
