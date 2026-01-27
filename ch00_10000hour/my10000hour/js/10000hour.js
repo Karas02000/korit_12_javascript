@@ -8,7 +8,7 @@ function calcResult() {
     const subValue = inputSub.value.trim();
     const timeValue = parseInt(inputTime.value);
 
-    // 유효성 검사: 입력값이 없거나 숫자가 아니면 실행 중단
+    if (timeValue <= 24 && timeValue > 0 ){// 유효성 검사: 입력값이 없거나 숫자가 아니면 실행 중단
     if (!subValue || isNaN(timeValue) || timeValue <= 0) {
         alert('분야와 시간을 정확히 입력해주세요! 😊');
         return;
@@ -23,6 +23,9 @@ function calcResult() {
 
     // 결과 HTML 생성 및 출력
     displayResult(subValue, totalDays);
+    } else {
+        alert("올바른 시간을 입력하여 주십시오.")
+    }
 }
 
 function displayResult(subject, days) {

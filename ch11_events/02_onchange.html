@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="select1" onChage="doChange();">
+        <option value="KO">한국</option>
+        <option value="JP">일본</option>
+        <option value="CH">중국</option>
+    </select>
+    <script>
+        function doChange() {
+            let selectedValue = document.getElementById('select').value;
+            console.log(selectedValue);
+        }
+    </script>
+</body>
+</html>
