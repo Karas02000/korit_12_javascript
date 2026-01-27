@@ -6,6 +6,7 @@
     <link rel="shortcut icon" href="../10000hour-main/img/favicon.ico">
     <link rel="stylesheet" href="css/10000hour.css">
     <title>1만 시간의 법칙</title>
+    <link rel="icon" href="img/favicon.ico" type="img/favicon-icon">
 </head>
 <body>
     <div class="content">
@@ -15,9 +16,44 @@
         </div>
 
         <div class="intro">
+            <span class="subtitle">
+                <p>"연습은 어제의 당신보다 당신을 더 낫게 만든다."</p>
+            </span>
+
+            <p class="explain">
+                <span class="bold_text">1만 시간의 법칙</span>은<br>
+                어떤 분야의 전문가가 되기 위해서는<br>
+                최소한 1만 시간의 훈련이 필요하다는 법칙이다.
+            </p>
             <img class="quates" src="img/quotes.png" alt="따옴표">
-            <span>aaaaa</span>
+        </div>
+
+        <div class="input">
+            <p>
+                나는
+                <input id="sub_input"  type="text" placeholder="예) 프로그래밍">
+                전문가가 될 것이다.
+            </p>
+            <p>
+                그래서 앞으로 매일 하루에
+                <input id="time_input" type="number" placeholder="예)5">
+                시간씩 훈련할 것이다.
+            </p>
+
+            <div class="ok_btn_space">
+                <button id="ok_btn" onclick="sayHello()">
+                    나는 몇 시간동안 훈련해야 1만 시간이 될까?
+                </button>
+                <img class="pointer" src="img/click.png" alt="클릭!">
+            </div>
+        </div>
+
+        <div class="copyright">
+            <img src="img/logo.png" alt="Wenisv">
+            <p>※ 본 서비스 내 이미지 및 콘텐츠의 저작권은 주식회사 WeNiv에 있습니다.<br>수정 및 재배포, 무단 도용 시 법적인 문제가 발생할 수 있습니다.</p>
         </div>
     </div>
+
+    <script src="js/10000hour.js"></script>
 </body>
 </html>
